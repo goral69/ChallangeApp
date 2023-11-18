@@ -1,21 +1,22 @@
-﻿// Dzień 4
-string name = "Ewa";
-string gender = "female";
-var age = 34;
-//
-if (gender == "female" && age < 30)
+﻿// Dzień 5
+int number = 4556;
+string numberAsString = number.ToString();
+char[] chars = numberAsString.ToCharArray();
+int[] digit = new int[10];
+
+foreach (var i in digit)
 {
-    Console.WriteLine("Kobieta poniżej 30 lat");
+    digit[i] = 0;
 }
-else if (name == "Ewa" && age == 33)
+
+foreach (char c in chars )
 {
-    Console.WriteLine("Ewa, lat 33");
+    digit[Convert.ToInt32(c) - 48] ++;
 }
-else if (gender == "male" && age < 18)
+
+Console.WriteLine("Liczba: " + number);
+
+for(var i = 0; i < digit.Length; i ++)
 {
-    Console.WriteLine("Niepełnoletni mężczyzna");
-}
-else
-{
-    Console.WriteLine("Żaden warunek nie został spełniony");
+    Console.WriteLine(i + " => " + digit[i]);
 }
