@@ -1,22 +1,42 @@
-﻿// Dzień 5
-int number = 4556;
-string numberAsString = number.ToString();
-char[] chars = numberAsString.ToCharArray();
-int[] digit = new int[10];
+﻿// Dzień 6
+using ChallengeApp;
 
-foreach (var i in digit)
+Employee user1 = new Employee("Adam", "Wroński", 39);
+Employee user2 = new Employee("Ewa", "Wanat", 52);
+Employee user3 = new Employee("Bartłomiej", "Głowacki", 21);
+
+user1.AddScore(4);
+user1.AddScore(1);
+user1.AddScore(7);
+user1.AddScore(3);
+user1.AddScore(9);
+
+user2.AddScore(1);
+user2.AddScore(5);
+user2.AddScore(8);
+user2.AddScore(10);
+user2.AddScore(2);
+
+user3.AddScore(2);
+user3.AddScore(7);
+user3.AddScore(4);
+user3.AddScore(8);
+user3.AddScore(9);
+
+List<Employee> employees = new List<Employee>()
 {
-    digit[i] = 0;
+    user1, user2, user3
+};
+
+int MaxResult = -1;
+Employee employeeWithMaxResult = null;
+
+foreach (var employee in employees)
+{
+    if (employee.result > MaxResult)
+    {
+        employeeWithMaxResult = employee;
+    }
 }
 
-foreach (char c in chars )
-{
-    digit[Convert.ToInt32(c) - 48] ++;
-}
-
-Console.WriteLine("Liczba: " + number);
-
-for(var i = 0; i < digit.Length; i ++)
-{
-    Console.WriteLine(i + " => " + digit[i]);
-}
+Console.WriteLine(employeeWithMaxResult.name + " " + employeeWithMaxResult.surname + ", wiek: " + employeeWithMaxResult.age+", wynik: "+employeeWithMaxResult.result);
