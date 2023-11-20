@@ -1,7 +1,7 @@
 ﻿namespace ChallengeApp.Tests
 
 {
-    public class TypeTests
+    public class EmployeeTests
     {
         [Test]
         public void WhenAddThreeGrades_ShouldMaxBeGood()
@@ -27,15 +27,15 @@
             var employee = new Employee("Beata", "Kozidrak");
  
             // act
-            employee.AddGrade(-5);
+            employee.AddGrade(1);
             employee.AddGrade(7);
             employee.AddGrade(9);
             var statistics = employee.GetStatistics();
 
 
             // assert
-            Assert.AreEqual(-5, statistics.Min);            // classic model
-            Assert.That(statistics.Min, Is.EqualTo(-5));    // constraint model
+            Assert.AreEqual(1, statistics.Min);            // classic model
+            Assert.That(statistics.Min, Is.EqualTo(1));    // constraint model
         }
 
         [Test]
@@ -43,7 +43,7 @@
         {
             //arrange
             var employee = new Employee("Beata", "Kozidrak");
-            float grade1 = 2;
+            float grade1 = 1;
             float grade2 = 5;
             float grade3 = 9;
 
@@ -55,8 +55,8 @@
 
 
             // assert
-            Assert.AreEqual((grade1 + grade2 + grade3) /3, statistics.Average);             // classic model
-            Assert.That(statistics.Average, Is.EqualTo((grade1 + grade2 + grade3) / 3));    // constraint model
+            Assert.AreEqual(Math.Round(((grade1 + grade2 + grade3) / 3), 2), Math.Round(statistics.Average, 2));             // classic model
+            Assert.That(Math.Round(statistics.Average, 2), Is.EqualTo(Math.Round(((grade1 + grade2 + grade3) / 3), 2)));     // constraint model
         }
     }
 }

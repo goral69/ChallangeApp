@@ -15,7 +15,44 @@
 
         public void AddGrade(float grade)
         {
-            this.grades.Add(grade);
+            if (grade >= 0 && grade <=100)
+            {
+                this.grades.Add(grade);
+            }
+            else
+            {
+                Console.WriteLine("Niewłaściwa wartość oceny");
+            }
+        }
+
+        public void AddGrade(string grade)
+        {
+            if (float.TryParse(grade, out float result))
+            {
+                this.AddGrade(result);
+            }
+            else
+            {
+                Console.WriteLine("Podana wartość nie jest liczbą zmiennoprzecinkową (float)");
+            }
+        }
+
+        public void AddGrade(long grade)
+        {
+            float gradeLongAsFloat = (float)grade;
+            this.AddGrade(gradeLongAsFloat);
+        }
+
+        public void AddGrade(double grade)
+        {
+            float gradeDoubleAsFloat = (float)grade;
+            this.AddGrade(gradeDoubleAsFloat);
+        }
+
+        public void AddGrade(decimal grade)
+        {
+            float gradeDecimalAsFloat = (float)grade;
+            this.AddGrade(gradeDecimalAsFloat);
         }
 
         public Statistics GetStatistics()
@@ -32,7 +69,7 @@
                 statistics.Average += grade;
             }
 
-            statistics.Average /= this.grades.Count; // statistics.Average = statistics.Average / this.grades.Count;
+            statistics.Average /= this.grades.Count;
             return statistics;
         }
     }
