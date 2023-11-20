@@ -1,62 +1,62 @@
 ﻿namespace ChallengeApp.Tests
+
 {
     public class TypeTests
     {
         [Test]
-        public void WhenComparisonOfTwoVarType_ShouldSumBeGood()
+        public void WhenAddThreeGrades_ShouldMaxBeGood()
         {
             //arrange
-            var number1 = 5;
-            var number2 = 7;
+            var employee = new Employee("Beata", "Kozidrak");
 
             // act
+            employee.AddGrade(2);
+            employee.AddGrade(5);
+            employee.AddGrade(6);
+            var statistics = employee.GetStatistics();
 
             // assert
-            Assert.AreEqual(12, number1 + number2);
+            Assert.AreEqual(6, statistics.Max);             // classic model
+            Assert.That(statistics.Max, Is.EqualTo(6));     // constraint model
         }
 
         [Test]
-        public void WhenComparisonOfTwoStringType_ShouldNotBeTheSame()
+        public void WhenAddThreeGrades_ShouldMinBeGood()
         {
             //arrange
-            string name1 = "Artur1";
-            string name2 = "Artur2";
-
+            var employee = new Employee("Beata", "Kozidrak");
+ 
             // act
+            employee.AddGrade(-5);
+            employee.AddGrade(7);
+            employee.AddGrade(9);
+            var statistics = employee.GetStatistics();
+
 
             // assert
-            Assert.AreNotSame(name1, name2);
+            Assert.AreEqual(-5, statistics.Min);            // classic model
+            Assert.That(statistics.Min, Is.EqualTo(-5));    // constraint model
         }
 
         [Test]
-        public void WhenComparisonOfTwoStringType_ShouldBeFirstLessThenSecond()
+        public void WhenAddThreeGrades_ShouldAverageBeGood()
         {
             //arrange
-            string name1 = "Artur1";
-            string name2 = "Artur21";
+            var employee = new Employee("Beata", "Kozidrak");
+            float grade1 = 2;
+            float grade2 = 5;
+            float grade3 = 9;
 
             // act
+            employee.AddGrade(grade1);
+            employee.AddGrade(grade2);
+            employee.AddGrade(grade3);
+            var statistics = employee.GetStatistics();
+
 
             // assert
-            Assert.That(name1.Length, Is.LessThan(name2.Length));
+            Assert.AreEqual((grade1 + grade2 + grade3) /3, statistics.Average);             // classic model
+            Assert.That(statistics.Average, Is.EqualTo((grade1 + grade2 + grade3) / 3));    // constraint model
         }
-
-        [Test]
-        public void WhenComparisonOfTwoReferenceType_ShouldNotEqual()
-        { 
-            //arrange
-            var employee1 = GetEmployee("Adam", "Wroński", 39);
-            var employee2 = GetEmployee("Ewa", "Wanat", 52);
-
-            // act
-    
-            // assert
-            Assert.AreNotEqual(employee1, employee2);
-        }
-
-       private Employee GetEmployee(string name, string surname, int age) 
-       {
-           return new Employee(name, surname, age);
-       }
-     }
+    }
 }
