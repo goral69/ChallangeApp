@@ -1,6 +1,4 @@
-using ChallengeApp;
-
-namespace ChellangeApp.Test
+namespace ChallengeApp.Tests
 {
     public class Tests
     {
