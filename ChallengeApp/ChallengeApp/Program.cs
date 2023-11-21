@@ -1,4 +1,4 @@
-﻿// Dzień 10
+﻿// Dzień 11
 using ChallengeApp;
 
 var employee = new Employee("Adam", "Wroński");
@@ -10,7 +10,27 @@ employee.AddGrade(decimal.MaxValue);
 employee.AddGrade(5.5);
 employee.AddGrade(6);
 var statistics = employee.GetStatistics();
-Console.WriteLine($"Imię: {employee.Name}, Nazwisko: {employee.Surname}");
+var statistics1 = employee.GetStatisticsWithForEach();
+var statistics2 = employee.GetStatisticsWithFor();
+var statistics3 = employee.GetStatisticsWithDoWhile();
+var statistics4 = employee.GetStatisticsWithWhile();
+Console.WriteLine($"Imię: {employee.Name}, Nazwisko: {employee.Surname}, metoda 0");
 Console.WriteLine($"Average: {statistics.Average:N2}");
 Console.WriteLine($"Min: {statistics.Min}");
 Console.WriteLine($"Max: {statistics.Max}");
+Console.WriteLine($"Imię: {employee.Name}, Nazwisko: {employee.Surname}, metoda 1");
+Console.WriteLine($"Average: {statistics1.Average:N2}");
+Console.WriteLine($"Min: {statistics1.Min}");
+Console.WriteLine($"Max: {statistics1.Max}");
+Console.WriteLine($"Imię: {employee.Name}, Nazwisko: {employee.Surname}, metoda 2");
+Console.WriteLine($"Average: {statistics2.Average:N2}");
+Console.WriteLine($"Min: {statistics2.Min}");
+Console.WriteLine($"Max: {statistics2.Max}");
+Console.WriteLine($"Imię: {employee.Name}, Nazwisko: {employee.Surname}, metoda 3");
+Console.WriteLine($"Average: {statistics3.Average:N2}");
+Console.WriteLine($"Min: {statistics3.Min}");
+Console.WriteLine($"Max: {statistics3.Max}");
+Console.WriteLine($"Imię: {employee.Name}, Nazwisko: {employee.Surname}, metoda 4");
+Console.WriteLine($"Average: {statistics4.Average:N2}");
+Console.WriteLine($"Min: {statistics4.Min}");
+Console.WriteLine($"Max: {statistics4.Max}");
