@@ -1,36 +1,34 @@
-﻿// Dzień 11
+﻿// Dzień 12
 using ChallengeApp;
 
-var employee = new Employee("Adam", "Wroński");
-employee.AddGrade("Adam"); 
-employee.AddGrade("2000");
-employee.AddGrade(long.MaxValue);
-employee.AddGrade(double.MaxValue);
-employee.AddGrade(decimal.MaxValue);
-employee.AddGrade(5.5);
-employee.AddGrade(6);
+Console.WriteLine("Witamy w programie do oceny pracowników");
+Console.WriteLine("=======================================");
+Console.WriteLine();
+//var employee = new Employee("Adam", "Wroński");
+var employee = new Employee();
+
+while (true)
+{
+    Console.WriteLine("Podaj ocenę pracownika:");
+    var input = Console.ReadLine();
+    if (input == "q" || input == "Q")
+    {
+        break;
+    }
+    employee.AddGrade(input);
+    Console.WriteLine("Aby zakończyć wciśnij 'q'");
+}
+
 var statistics = employee.GetStatistics();
-var statistics1 = employee.GetStatisticsWithForEach();
-var statistics2 = employee.GetStatisticsWithFor();
-var statistics3 = employee.GetStatisticsWithDoWhile();
-var statistics4 = employee.GetStatisticsWithWhile();
-Console.WriteLine($"Imię: {employee.Name}, Nazwisko: {employee.Surname}, metoda 0");
-Console.WriteLine($"Average: {statistics.Average:N2}");
-Console.WriteLine($"Min: {statistics.Min}");
-Console.WriteLine($"Max: {statistics.Max}");
-Console.WriteLine($"Imię: {employee.Name}, Nazwisko: {employee.Surname}, metoda 1");
-Console.WriteLine($"Average: {statistics1.Average:N2}");
-Console.WriteLine($"Min: {statistics1.Min}");
-Console.WriteLine($"Max: {statistics1.Max}");
-Console.WriteLine($"Imię: {employee.Name}, Nazwisko: {employee.Surname}, metoda 2");
-Console.WriteLine($"Average: {statistics2.Average:N2}");
-Console.WriteLine($"Min: {statistics2.Min}");
-Console.WriteLine($"Max: {statistics2.Max}");
-Console.WriteLine($"Imię: {employee.Name}, Nazwisko: {employee.Surname}, metoda 3");
-Console.WriteLine($"Average: {statistics3.Average:N2}");
-Console.WriteLine($"Min: {statistics3.Min}");
-Console.WriteLine($"Max: {statistics3.Max}");
-Console.WriteLine($"Imię: {employee.Name}, Nazwisko: {employee.Surname}, metoda 4");
-Console.WriteLine($"Average: {statistics4.Average:N2}");
-Console.WriteLine($"Min: {statistics4.Min}");
-Console.WriteLine($"Max: {statistics4.Max}");
+
+if (statistics.AverageLetter == null)
+{
+    Console.WriteLine("Nie podano żadnej oceny pracownika");
+}
+else
+{
+    Console.WriteLine($"Ocena średnia: {statistics.Average:N2}");
+    Console.WriteLine($"Ocena minimalna: {statistics.Min}");
+    Console.WriteLine($"Ocena maksymalna: {statistics.Max}");
+    Console.WriteLine($"Ocena literowa: {statistics.AverageLetter}");
+}
