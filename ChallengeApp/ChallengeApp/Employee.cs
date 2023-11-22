@@ -29,52 +29,40 @@
             }
         }
 
-        public void AddGrade(string grade)
+         public void AddGrade(string grade)
         {
-            if (char.TryParse(grade, out char letter))
+            if (float.TryParse(grade, out float result))
+            {
+                this.AddGrade(result);
+            }
+            else if (char.TryParse(grade, out char letter))
             {
                 switch (letter)
                 {
                     case 'A':
                     case 'a':
-                        this.grades.Add(100);
+                        this.AddGrade(100);
                         break;
                     case 'B':
                     case 'b':
-                        this.grades.Add(80);
+                        this.AddGrade(80);
                         break;
                     case 'C':
                     case 'c':
-                        this.grades.Add(60);
+                        this.AddGrade(60);
                         break;
                     case 'D':
                     case 'd':
-                        this.grades.Add(40);
+                        this.AddGrade(40);
                         break;
                     case 'E':
                     case 'e':
-                        this.grades.Add(20);
-                        break;
-                    case '0':
-                    case '1':
-                    case '2':
-                    case '3':
-                    case '4':
-                    case '5':
-                    case '6':
-                    case '7':
-                    case '8':
-                    case '9':
-                        this.grades.Add(int.Parse(letter.ToString()));
+                        this.AddGrade(20);
                         break;
                     default:
                         Console.WriteLine("Niewłaściwa litera");
                         break;
                 }
-            }
-            else if (float.TryParse(grade, out float result))
-            {
-                this.AddGrade(result);
             }
             else
             {
