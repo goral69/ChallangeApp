@@ -1,4 +1,4 @@
-﻿// Dzień 13
+﻿// Dzień 15
 using ChallengeApp;
 
 Console.WriteLine("Witamy w programie do oceny pracowników");

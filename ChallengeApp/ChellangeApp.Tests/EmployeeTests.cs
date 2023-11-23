@@ -7,7 +7,7 @@
         public void WhenAddThreeGrades_ShouldMaxBeGood()
         {
             //arrange
-            var employee = new Employee("Beata", "Kozidrak");
+            var employee = new Employee("Beata", "Kozidrak", "F");
 
             // act
             employee.AddGrade(20);
@@ -16,7 +16,7 @@
             var statistics = employee.GetStatistics();
 
             // assert
-            Assert.AreEqual(100, statistics.Max);             // classic model
+            //Assert.AreEqual(100, statistics.Max);             // classic model
             Assert.That(statistics.Max, Is.EqualTo(100));     // constraint model
         }
 
@@ -24,7 +24,7 @@
         public void WhenAddThreeGrades_ShouldMinBeGood()
         {
             //arrange
-            var employee = new Employee("Beata", "Kozidrak");
+            var employee = new Employee("Beata", "Kozidrak", "F");
  
             // act
             employee.AddGrade(87);
@@ -34,7 +34,7 @@
 
 
             // assert
-            Assert.AreEqual(60, statistics.Min);            // classic model
+            //Assert.AreEqual(60, statistics.Min);            // classic model
             Assert.That(statistics.Min, Is.EqualTo(60));    // constraint model
         }
 
@@ -42,7 +42,7 @@
         public void WhenAddThreeGrades_ShouldAverageBeGood()
         {
             //arrange
-            var employee = new Employee("Beata", "Kozidrak");
+            var employee = new Employee("Beata", "Kozidrak", "F");
             float grade1 = 'B';
             float grade2 = 25;
             float grade3 = 45;
@@ -55,7 +55,7 @@
 
 
             // assert
-            Assert.AreEqual(Math.Round(((grade1 + grade2 + grade3) / 3), 2), Math.Round(statistics.Average, 2));             // classic model
+            //Assert.AreEqual(Math.Round(((grade1 + grade2 + grade3) / 3), 2), Math.Round(statistics.Average, 2));             // classic model
             Assert.That(Math.Round(statistics.Average, 2), Is.EqualTo(Math.Round(((grade1 + grade2 + grade3) / 3), 2)));     // constraint model
         }
 
@@ -63,7 +63,7 @@
         public void WhenAddThreeGrades_ShouldAverageLetterBeGood()
         {
             //arrange
-            var employee = new Employee("Beata", "Kozidrak");
+            var employee = new Employee("Beata", "Kozidrak", "F");
             float grade1 = 'B';
             float grade2 = 25;
             float grade3 = 45;
@@ -76,7 +76,7 @@
 
 
             // assert
-            Assert.AreEqual("C", statistics.AverageLetter);            // classic model
+            //Assert.AreEqual("C", statistics.AverageLetter);            // classic model
             Assert.That(statistics.AverageLetter, Is.EqualTo("C"));    // constraint model
         }
 
