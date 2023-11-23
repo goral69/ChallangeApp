@@ -1,4 +1,4 @@
-﻿// Dzień 12
+﻿// Dzień 13
 using ChallengeApp;
 
 Console.WriteLine("Witamy w programie do oceny pracowników");
@@ -15,7 +15,14 @@ while (true)
     {
         break;
     }
-    employee.AddGrade(input);
+    try
+    {
+        employee.AddGrade(input);
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine($"Wystąpił wyjątek: {e.Message}");
+    }
     Console.WriteLine("Aby zakończyć wciśnij 'q'");
 }
 

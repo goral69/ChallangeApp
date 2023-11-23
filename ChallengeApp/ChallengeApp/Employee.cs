@@ -25,7 +25,7 @@
             }
             else
             {
-                Console.WriteLine("Niewłaściwa wartość oceny");
+                throw new Exception("Niewłaściwa wartość oceny");
             }
         }
 
@@ -60,13 +60,12 @@
                         this.AddGrade(20);
                         break;
                     default:
-                        Console.WriteLine("Niewłaściwa litera");
-                        break;
+                        throw new Exception("Niewłaściwa litera");
                 }
             }
             else
             {
-                Console.WriteLine("Podana wartość nie jest liczbą zmiennoprzecinkową (float)");
+                throw new Exception("Podana wartość nie jest liczbą zmiennoprzecinkową (float)");
             }
         }
 
