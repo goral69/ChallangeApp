@@ -4,8 +4,7 @@ using ChallengeApp;
 Console.WriteLine("Witamy w programie do oceny pracowników");
 Console.WriteLine("=======================================");
 Console.WriteLine();
-//var employee = new Employee("Adam", "Wroński");
-var employee = new Employee();
+var employee = new Employee("Adam", "Wroński", "M");
 
 while (true)
 {
