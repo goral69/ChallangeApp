@@ -1,22 +1,13 @@
 ﻿namespace ChallengeApp
 {
-    public class Employee : IEmployee
+    public class EmployeeInMemory : EmployeeBase
     {
         private List<float> grades = new List<float>();
-        public Employee(string name, string surname, string sex)
+        public EmployeeInMemory(string name, string surname, string sex) : base(name, surname, sex)
         {
-            this.Name = name;
-            this.Surname = surname;
-            this.Sex = sex;
         }
 
-        public string Name { get; private set; }
-
-        public string Surname { get; private set; }
-
-        public string Sex { get; private set; }
-
-        public void AddGrade(float grade)
+        public override void AddGrade(float grade)
         {
             if (grade >= 0 && grade <= 100)
             {
@@ -28,65 +19,71 @@
             }
         }
 
-        public void AddGrade(string grade)
+        public override void AddGrade(string grade)
         {
-            if (float.TryParse(grade, out float result))
+            try
             {
-                this.AddGrade(result);
-            }
-            else if (char.TryParse(grade, out char letter))
-            {
-                switch (letter)
+                if (float.TryParse(grade, out float result))
                 {
-                    case 'A':
-                    case 'a':
-                        this.AddGrade(100);
-                        break;
-                    case 'B':
-                    case 'b':
-                        this.AddGrade(80);
-                        break;
-                    case 'C':
-                    case 'c':
-                        this.AddGrade(60);
-                        break;
-                    case 'D':
-                    case 'd':
-                        this.AddGrade(40);
-                        break;
-                    case 'E':
-                    case 'e':
-                        this.AddGrade(20);
-                        break;
-                    default:
-                        throw new Exception("Niewłaściwa litera");
+                    this.AddGrade(result);
+                }
+                else if (char.TryParse(grade, out char letter))
+                {
+                    switch (letter)
+                    {
+                        case 'A':
+                        case 'a':
+                            this.AddGrade(100);
+                            break;
+                        case 'B':
+                        case 'b':
+                            this.AddGrade(80);
+                            break;
+                        case 'C':
+                        case 'c':
+                            this.AddGrade(60);
+                            break;
+                        case 'D':
+                        case 'd':
+                            this.AddGrade(40);
+                            break;
+                        case 'E':
+                        case 'e':
+                            this.AddGrade(20);
+                            break;
+                        default:
+                            throw new Exception("Niewłaściwa litera");
+                    }
+                }
+                else
+                {
+                    throw new Exception("Podana wartość nie jest liczbą zmiennoprzecinkową (float)");
                 }
             }
-            else
-            {
-                throw new Exception("Podana wartość nie jest liczbą zmiennoprzecinkową (float)");
-            }
+            catch (FormatException exception)
+            { Console.WriteLine("Błąd parsowania: "+exception.Message);}
+
         }
 
-        public void AddGrade(long grade)
+        public override void AddGrade(long grade)
         {
             float gradeLongAsFloat = (float)grade;
             this.AddGrade(gradeLongAsFloat);
         }
 
-        public void AddGrade(double grade)
+        public override void AddGrade(double grade)
         {
             float gradeDoubleAsFloat = (float)grade;
             this.AddGrade(gradeDoubleAsFloat);
         }
 
-        public void AddGrade(decimal grade)
+        public override void AddGrade(decimal grade)
         {
             float gradeDecimalAsFloat = (float)grade;
             this.AddGrade(gradeDecimalAsFloat);
         }
 
-        public Statistics GetStatistics()
+        public override Statistics GetStatistics()
         {
             var statistics = new Statistics();
             statistics.Average = 0;

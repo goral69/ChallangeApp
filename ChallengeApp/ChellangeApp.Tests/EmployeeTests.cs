@@ -7,7 +7,7 @@
         public void WhenAddThreeGrades_ShouldMaxBeGood()
         {
             //arrange
-            var employee = new Employee("Beata", "Kozidrak", "F");
+            var employee = new EmployeeInMemory("Beata", "Kozidrak", "F");
 
             // act
             employee.AddGrade(20);
@@ -24,7 +24,7 @@
         public void WhenAddThreeGrades_ShouldMinBeGood()
         {
             //arrange
-            var employee = new Employee("Beata", "Kozidrak", "F");
+            var employee = new EmployeeInMemory("Beata", "Kozidrak", "F");
  
             // act
             employee.AddGrade(87);
@@ -42,7 +42,7 @@
         public void WhenAddThreeGrades_ShouldAverageBeGood()
         {
             //arrange
-            var employee = new Employee("Beata", "Kozidrak", "F");
+            var employee = new EmployeeInMemory("Beata", "Kozidrak", "F");
             float grade1 = 'B';
             float grade2 = 25;
             float grade3 = 45;
@@ -63,7 +63,7 @@
         public void WhenAddThreeGrades_ShouldAverageLetterBeGood()
         {
             //arrange
-            var employee = new Employee("Beata", "Kozidrak", "F");
+            var employee = new EmployeeInMemory("Beata", "Kozidrak", "F");
             float grade1 = 'B';
             float grade2 = 25;
             float grade3 = 45;
