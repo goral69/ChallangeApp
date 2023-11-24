@@ -1,10 +1,16 @@
-﻿// Dzień 16
+﻿// Dzień 17
 using ChallengeApp;
 
 Console.WriteLine("Witamy w programie do oceny pracowników");
 Console.WriteLine("=======================================");
 Console.WriteLine();
-var employee = new EmployeeInFile("Adam", "Wroński", "M");
+var employee = new EmployeeInMemory("Adam", "Wroński", "M");
+employee.GradeAdded += EmployeeGradeAdded;
+
+void EmployeeGradeAdded(object sender, EventArgs args)
+{
+    Console.WriteLine("Dodano nową ocenę");
+}
 
 while (true)
 {

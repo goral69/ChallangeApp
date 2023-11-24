@@ -2,6 +2,8 @@
 {
     public class EmployeeInFile : EmployeeBase
     {
+        public override event GradeAddedDelegate GradeAdded;
+
         private const string fileName = "grades.txt";
 
         public EmployeeInFile(string name, string surname, string sex) : base(name, surname, sex)
@@ -62,6 +64,10 @@
                 {
                     writer.WriteLine(grade);
                 }
+                if (GradeAdded != null)
+                {
+                    GradeAdded(this, new EventArgs());
+                }
             }
             else
             {
@@ -79,7 +85,7 @@
         {
             float gradeDoubleAsFloat = (float)grade;
             this.AddGrade(gradeDoubleAsFloat);
-         }
+        }
 
         public override void AddGrade(decimal grade)
         {

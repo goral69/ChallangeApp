@@ -3,6 +3,9 @@
     public class EmployeeInMemory : EmployeeBase
     {
         private List<float> grades = new List<float>();
+        
+        public override event GradeAddedDelegate GradeAdded;
+
         public EmployeeInMemory(string name, string surname, string sex) : base(name, surname, sex)
         {
         }
@@ -12,6 +15,11 @@
             if (grade >= 0 && grade <= 100)
             {
                 this.grades.Add(grade);
+
+                if (GradeAdded != null)
+                {
+                    GradeAdded(this, new EventArgs());
+                }
             }
             else
             {
@@ -61,7 +69,7 @@
                 }
             }
             catch (FormatException exception)
-            { Console.WriteLine("Błąd parsowania: "+exception.Message);}
+            { Console.WriteLine("Błąd parsowania: " + exception.Message); }
 
         }
 
