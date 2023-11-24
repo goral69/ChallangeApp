@@ -71,17 +71,20 @@
 
         public override void AddGrade(long grade)
         {
-            throw new NotImplementedException();
+            float gradeLongAsFloat = (float)grade;
+            this.AddGrade(gradeLongAsFloat);
         }
 
         public override void AddGrade(double grade)
         {
-            throw new NotImplementedException();
-        }
+            float gradeDoubleAsFloat = (float)grade;
+            this.AddGrade(gradeDoubleAsFloat);
+         }
 
         public override void AddGrade(decimal grade)
         {
-            throw new NotImplementedException();
+            float gradeDecimalAsFloat = (float)grade;
+            this.AddGrade(gradeDecimalAsFloat);
         }
 
         public override Statistics GetStatistics()
