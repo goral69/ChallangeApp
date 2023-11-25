@@ -77,7 +77,7 @@
 
             // assert
             //Assert.AreEqual("C", statistics.AverageLetter);            // classic model
-            Assert.That(statistics.AverageLetter, Is.EqualTo("C"));    // constraint model
+            Assert.That(statistics.AverageLetter, Is.EqualTo('C'));    // constraint model
         }
 
     }
